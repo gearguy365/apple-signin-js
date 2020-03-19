@@ -1,0 +1,26 @@
+<html>
+    <head>
+      <!-- <meta name="appleid-signin-client-id" content="jp.glossom.muuutestapplesignin">
+      <meta name="appleid-signin-scope" content="email password">
+      <meta name="appleid-signin-redirect-uri" content="http://staging.muuu.uuum.tokyo:8080/redirect.html">
+      <meta name="appleid-signin-state" content="intitial user authentication1"> -->
+    </head>
+    <body>
+        <script type="text/javascript" src="https://appleid.cdn-apple.com/appleauth/static/jsapi/appleid/1/en_US/appleid.auth.js"></script>
+        <div class="login-btn" id="appleid-signin" data-color="black" data-border="true" data-type="sign in">sign in</div>
+        <script type="text/javascript">
+            AppleID.auth.init({
+                clientId : 'muuutest.apple.service',
+                scope : 'email password',
+                redirectURI : 'https://staging.muuu.uuum.tokyo/',
+                usePopup : false, //or false defaults to false,
+                state: 'intitial user authentication'
+            });
+            console.log('---it works!---');
+            const buttonElement = document.getElementById('appleid-signin');
+            buttonElement.addEventListener('click', () => {
+              AppleID.auth.signIn();
+            });
+        </script>
+    </body>
+</html>
